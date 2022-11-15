@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>TD.CitizenAPI.Shared</RootNamespace>
+        <AssemblyName>TD.CitizenAPI.Shared</AssemblyName>
+    </PropertyGroup>
+</Project>
