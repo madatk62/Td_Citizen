@@ -9,4 +9,6 @@ public class HoSoDienTuDetailsDto : IDto
     public string? MaHoSo { get; set; }
     public string? TenThuTuc { get; set; }
     public string? MaThuTuc { get; set; }
+    public string? TenLinhVuc { get; set; }
+    public string? MaLinhVuc { get; set; }
 }

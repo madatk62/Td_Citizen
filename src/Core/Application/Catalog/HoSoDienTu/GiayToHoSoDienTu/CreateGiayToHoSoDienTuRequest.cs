@@ -14,6 +14,7 @@ public partial class CreateGiayToHoSoDienTuRequest : IRequest<Result<Guid>>
     public string? TenLoaiGiayTo { get; set; }
     public string? NhomGiayToID { get; set; }
     public string? TenNhomGiayTo { get; set; }
+    public string? GiayToCaNhanID { get; set; }
 }
 
 public class CreateGiayToHoSoDienTuRequestValidator : CustomValidator<CreateGiayToHoSoDienTuRequest>
@@ -31,7 +32,7 @@ public class CreateGiayToHoSoDienTuRequestHandler : IRequestHandler<CreateGiayTo
 
     public async Task<Result<Guid>> Handle(CreateGiayToHoSoDienTuRequest request, CancellationToken cancellationToken)
     {
-        var item = new GiayToHoSoDienTu(request.IDCongDan, request.HoSoDienTuID, request.MaHoSoDienTu, request.TenGiayTo, request.MaGiayTo, request.DinhKem, request.LoaiGiayToID, request.TenLoaiGiayTo, request.NhomGiayToID, request.TenNhomGiayTo, request.SoGiayTo);
+        var item = new GiayToHoSoDienTu(request.IDCongDan, request.HoSoDienTuID, request.MaHoSoDienTu, request.TenGiayTo, request.MaGiayTo, request.DinhKem, request.LoaiGiayToID, request.TenLoaiGiayTo, request.NhomGiayToID, request.TenNhomGiayTo, request.SoGiayTo, request.GiayToCaNhanID);
         await _repository.AddAsync(item, cancellationToken);
         return Result<Guid>.Success(item.Id);
     }

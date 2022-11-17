@@ -5,6 +5,7 @@ public class GiayToHoSoDienTu : AuditableEntity, IAggregateRoot
     public string HoSoDienTuID { get; set; }
     public string? MaHoSoDienTu { get; set; }
     public string TenGiayTo { get; set; }
+    public string? GiayToCaNhanID { get; set; }
     public string MaGiayTo { get; set; }
     public string? DinhKem { get; set; }
     public string? SoGiayTo { get; set; }
@@ -12,7 +13,7 @@ public class GiayToHoSoDienTu : AuditableEntity, IAggregateRoot
     public string? TenLoaiGiayTo { get; set; }
     public string? NhomGiayToID { get; set; }
     public string? TenNhomGiayTo { get; set; }
-    public GiayToHoSoDienTu (string iDCongDan, string hoSoDienTuID, string? maHoSoDienTu, string? tenGiayTo, string maGiayTo, string? dinhKem, string? loaiGiayToID, string? tenLoaiGiayTo, string? nhomGiayToID, string? tenNhomGiayTo, string? soGiayTo)
+    public GiayToHoSoDienTu (string iDCongDan, string hoSoDienTuID, string? maHoSoDienTu, string? tenGiayTo, string maGiayTo, string? dinhKem, string? loaiGiayToID, string? tenLoaiGiayTo, string? nhomGiayToID, string? tenNhomGiayTo, string? soGiayTo, string? giayToCaNhanID)
     {
         IDCongDan = iDCongDan;
         HoSoDienTuID = hoSoDienTuID;
@@ -22,12 +23,13 @@ public class GiayToHoSoDienTu : AuditableEntity, IAggregateRoot
         if (loaiGiayToID is not null) LoaiGiayToID = loaiGiayToID;
         if (tenLoaiGiayTo is not null) TenLoaiGiayTo = tenLoaiGiayTo;
         if (nhomGiayToID is not null) NhomGiayToID = nhomGiayToID;
+        if (giayToCaNhanID is not null) GiayToCaNhanID = giayToCaNhanID;
         if (tenNhomGiayTo is not null) TenNhomGiayTo = tenNhomGiayTo;
         if (dinhKem is not null) DinhKem = dinhKem;
         if (soGiayTo is not null) SoGiayTo = soGiayTo;
     }
 
-    public GiayToHoSoDienTu Update(string? hoSoDienTuID, string? maHoSoDienTu, string? tenGiayTo, string? maGiayTo, string? dinhKem, string? loaiGiayToID, string? tenLoaiGiayTo, string? nhomGiayToID, string? tenNhomGiayTo, string? soGiayTo)
+    public GiayToHoSoDienTu Update(string? hoSoDienTuID, string? maHoSoDienTu, string? tenGiayTo, string? maGiayTo, string? dinhKem, string? loaiGiayToID, string? tenLoaiGiayTo, string? nhomGiayToID, string? tenNhomGiayTo, string? soGiayTo, string? giayToCaNhanID)
     {
         if (hoSoDienTuID is not null && HoSoDienTuID?.Equals(hoSoDienTuID) is not true) HoSoDienTuID = hoSoDienTuID;
         if (maHoSoDienTu is not null && MaHoSoDienTu?.Equals(maHoSoDienTu) is not true) MaHoSoDienTu = maHoSoDienTu;
@@ -39,6 +41,7 @@ public class GiayToHoSoDienTu : AuditableEntity, IAggregateRoot
         if (nhomGiayToID is not null && NhomGiayToID?.Equals(nhomGiayToID) is not true) NhomGiayToID = nhomGiayToID;
         if (tenNhomGiayTo is not null && TenNhomGiayTo?.Equals(tenNhomGiayTo) is not true) TenNhomGiayTo = tenNhomGiayTo;
         if (soGiayTo is not null && SoGiayTo?.Equals(soGiayTo) is not true) SoGiayTo = soGiayTo;
+        if (giayToCaNhanID is not null && GiayToCaNhanID?.Equals(giayToCaNhanID) is not true) GiayToCaNhanID = giayToCaNhanID;
         return this;
     }
 

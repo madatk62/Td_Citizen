@@ -6,7 +6,8 @@ public class PaginationFilter : BaseFilter
 
     //public int PageSize { get; set; } = int.MaxValue;
     public int PageSize { get; set; } = 100;
-
+    public DateTime? TuNgay { get; set; }
+    public DateTime? DenNgay { get; set; }
     public string[]? OrderBy { get; set; }
 }
 

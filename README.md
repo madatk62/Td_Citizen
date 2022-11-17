@@ -47,3 +47,7 @@ dotnet ef migrations add Update_61 --project .././Migrators/Migrators.MSSQL/ --c
 dotnet ef migrations add Update_62 --project .././Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application
 dotnet ef migrations add Update_63 --project .././Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application
 dotnet ef migrations add Update_64 --project .././Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application
+
+dotnet ef migrations script Update_63 Update_64 --context ApplicationDbContext -o ./script.sql
+
+dotnet ef migrations add Update_65 --project .././Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application

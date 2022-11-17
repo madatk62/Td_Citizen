@@ -10,8 +10,11 @@ public class HoSoDienTuDto : IDto
     public string? MaHoSo { get; set; }
     public string? TenThuTuc { get; set; }
     public string? MaThuTuc { get; set; }
+    public string? TenLinhVuc { get; set; }
+    public string? MaLinhVuc { get; set; }
     public string? TenNhomHoSo { get; set; }
     public string? MaNhomHoSo { get; set; }
     public string? TenLoaiHoSo { get; set; }
     public string? MaLoaiHoSo { get; set; }
+    public DateTime? CreatedOn { get; set; }
 }

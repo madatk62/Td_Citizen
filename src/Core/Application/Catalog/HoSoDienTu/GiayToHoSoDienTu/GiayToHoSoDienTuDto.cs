@@ -5,6 +5,7 @@ public class GiayToHoSoDienTuDto : IDto
     public Guid Id { get; set; }
     public string? IDCongDan { get; set; }
     public string? HoSoDienTuID { get; set; }
+    public string? GiayToCaNhanID { get; set; }
     public string? MaHoSoDienTu { get; set; }
     public string? TenGiayTo { get; set; }
     public string? MaGiayTo { get; set; }

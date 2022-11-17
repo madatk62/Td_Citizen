@@ -4,7 +4,8 @@ public class SearchHoSoDienTusRequest : PaginationFilter, IRequest<PaginationRes
 {
     public string? IDCongDan { get; set; }
     public string? MaThuTuc { get; set; }
-    public string? MaNhomHoSo { get;set; }
+    public string? MaLinhVuc { get; set; }
+    public string? MaNhomHoSo { get; set; }
     public string? MaLoaiHoSo { get; set; }
 
 }
@@ -15,9 +16,12 @@ public class HoSoDienTusBySearchRequestSpec : EntitiesByPaginationFilterSpec<HoS
         : base(request) =>
         Query.Where(c => c.IDCongDan == request.IDCongDan, request.IDCongDan is not null)
             .Where(t => t.MaThuTuc == request.MaThuTuc, request.MaThuTuc is not null)
+            .Where(t => t.MaLinhVuc == request.MaLinhVuc, request.MaLinhVuc is not null)
             .Where(t => t.MaNhomHoSo == request.MaNhomHoSo, request.MaNhomHoSo is not null)
             .Where(t => t.MaLoaiHoSo == request.MaLoaiHoSo, request.MaLoaiHoSo is not null)
-            .OrderBy(c => c.TenHoSo, !request.HasOrderBy());
+             .Where(t => t.CreatedOn >= request.TuNgay && t.CreatedOn.HasValue, request.TuNgay is not null)
+            .Where(t => t.CreatedOn < request.DenNgay && t.CreatedOn.HasValue, request.DenNgay is not null)
+           .OrderByDescending(c => c.CreatedOn, !request.HasOrderBy());
 }
 
 public class SearchHoSoDienTusRequestHandler : IRequestHandler<SearchHoSoDienTusRequest, PaginationResponse<HoSoDienTuDto>>

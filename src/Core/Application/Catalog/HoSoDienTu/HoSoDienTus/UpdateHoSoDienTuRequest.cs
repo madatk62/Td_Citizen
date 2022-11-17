@@ -9,6 +9,8 @@ public class UpdateHoSoDienTuRequest : IRequest<Result<Guid>>
     public string? MaHoSo { get; set; }
     public string? TenThuTuc { get; set; }
     public string? MaThuTuc { get; set; }
+    public string? TenLinhVuc { get; set; }
+    public string? MaLinhVuc { get; set; }
     public string? TenNhomHoSo { get; set; }
     public string? MaNhomHoSo { get; set; }
     public string? TenLoaiHoSo { get; set; }
@@ -37,7 +39,7 @@ public class UpdateHoSoDienTuRequestHandler : IRequestHandler<UpdateHoSoDienTuRe
 
         _ = item ?? throw new NotFoundException(string.Format(_localizer["hosodientu.notfound"], request.Id));
 
-        item.Update(request.IDCongDan, request.TaiKhoanTao, request.MaHoSo, request.TenHoSo, request.MaThuTuc, request.TenThuTuc, request.TenNhomHoSo,request.MaNhomHoSo,request.TenLoaiHoSo,request.MaLoaiHoSo);
+        item.Update(request.IDCongDan, request.TaiKhoanTao, request.MaHoSo, request.TenHoSo, request.MaThuTuc, request.TenThuTuc,request.MaLinhVuc, request.TenLinhVuc, request.TenNhomHoSo,request.MaNhomHoSo,request.TenLoaiHoSo,request.MaLoaiHoSo);
 
         await _repository.UpdateAsync(item, cancellationToken);
 

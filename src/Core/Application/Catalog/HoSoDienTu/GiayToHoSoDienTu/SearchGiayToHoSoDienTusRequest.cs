@@ -13,10 +13,12 @@ public class GiayToHoSoDienTusBySearchRequestSpec : EntitiesByPaginationFilterSp
     public GiayToHoSoDienTusBySearchRequestSpec(SearchGiayToHoSoDienTusRequest request)
         : base(request)
     {
-        Query.Where(t=> t.IDCongDan == request.IDCongDan, request.IDCongDan is not null)
-        .Where(t=>t.HoSoDienTuID == request.HoSoDienTuID, request.HoSoDienTuID is not null)
-        .Where(t=> t.LoaiGiayToID == request.LoaiGiayToID, request.LoaiGiayToID is not null)
-        .Where(t=> t.NhomGiayToID == request.NhomGiayToID, request.NhomGiayToID is not null)
+        Query.Where(t => t.IDCongDan == request.IDCongDan, request.IDCongDan is not null)
+        .Where(t => t.HoSoDienTuID == request.HoSoDienTuID, request.HoSoDienTuID is not null)
+        .Where(t => t.LoaiGiayToID == request.LoaiGiayToID, request.LoaiGiayToID is not null)
+        .Where(t => t.NhomGiayToID == request.NhomGiayToID, request.NhomGiayToID is not null)
+        .Where(t => t.CreatedOn >= request.TuNgay && t.CreatedOn.HasValue,  request.TuNgay is not null)
+        .Where(t => t.CreatedOn < request.DenNgay && t.CreatedOn.HasValue, request.DenNgay is not null)
         .OrderByDescending(c => c.CreatedOn, !request.HasOrderBy());
     }
 }
